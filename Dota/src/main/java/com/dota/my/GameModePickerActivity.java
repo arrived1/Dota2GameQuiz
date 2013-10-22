@@ -5,15 +5,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.Button;
 
-public class GameActivity extends Activity {
+public class GameModePickerActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
-
-        GameSounds sounds = new GameSounds(this);
-        sounds.welcome();
+        setContentView(R.layout.activity_game_mode_picker);
 
         addListenerOnButtonSkillQuiz();
     }
@@ -27,6 +24,6 @@ public class GameActivity extends Activity {
 
     private void addListenerOnButtonSkillQuiz() {
         final Button button = (Button)findViewById(R.id.skillQuiz);
-        button.setOnClickListener(new ButtonOnClickListenerGameModePicker(this));
+        button.setOnClickListener(new ButtonOnClickListener(this));
     }
 }
