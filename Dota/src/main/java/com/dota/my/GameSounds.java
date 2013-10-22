@@ -7,8 +7,14 @@ public class GameSounds {
     private Activity actv;
 
     private void playSound(int id) {
-        MediaPlayer mp = MediaPlayer.create(actv, id);
-        mp.start();
+        MediaPlayer mp = null;
+        try {
+            mp = MediaPlayer.create(actv, id);
+            mp.start();
+        }
+        catch(Exception e) {
+            mp.release();
+        }
     }
 
     public GameSounds(Activity actv_) {

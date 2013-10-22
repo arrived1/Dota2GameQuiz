@@ -3,7 +3,7 @@ package com.dota.my;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+//import android.view.Menu;
 
 public class MainActivity extends Activity {
 
