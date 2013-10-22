@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Dota2 Game Quiz</string>
+    <string name="action_settings">Ustawienia</string>
+
+    <string name="hero_quiz">Hero quiz</string>
+    <string name="skill_quiz">Skill quiz</string>
+
+    <string name="points">Punkty: </string>
+    <string name="guesses_left">Szanse: </string>
+    <string name="time">Czas: </string>
+    <string name="game_over">Przegrałeś</string>
+
+    <string name="chronometer_initial_format">%s</string>
+
+</resources>
