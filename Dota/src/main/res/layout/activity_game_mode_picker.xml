@@ -27,7 +27,7 @@
             android:text="@string/gameModeName1" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_centerHorizontal="true"
@@ -40,7 +40,7 @@
     <LinearLayout
         android:id="@+id/group2"
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/group1"
         android:layout_centerVertical="true"
