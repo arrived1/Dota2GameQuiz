@@ -13,7 +13,9 @@
 
     <string name="chronometer_initial_format">%s</string>
 
-    <string name="gameModeName1">Game Over</string>
-    <string name="gameModeExplanation1">Game Over sdfsd sdfsdf sdf</string>
+    <string name="gameModeName1">DeadMatch</string>
+    <string name="gameModeName2">DeadMatch Hardcore</string>
+    <string name="gameModeExplanation1">You have 3 chances, game never end!</string>
+    <string name="gameModeExplanation2">Hardcore mode, you have only 1 chance, game never ends!</string>
 
 </resources>

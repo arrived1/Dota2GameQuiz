@@ -14,8 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp" >
+        android:layout_centerHorizontal="true" >
 
         <Button
             android:id="@+id/ModePick1"
@@ -32,9 +31,43 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_centerHorizontal="true"
-            android:textSize="30px"
+            android:gravity="center"
+            android:textSize="25px"
             android:layout_marginTop="5dp"
             android:text="@string/gameModeExplanation1" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/group2"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/group1"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" >
+
+        <Button
+            android:id="@+id/ModePick2"
+            style="@style/btnStylesorbus"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/logo"
+            android:text="@string/gameModeName2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textSize="25px"
+            android:layout_marginTop="5dp"
+            android:text="@string/gameModeExplanation2" />
+    </LinearLayout>
+
+
 
 </RelativeLayout>

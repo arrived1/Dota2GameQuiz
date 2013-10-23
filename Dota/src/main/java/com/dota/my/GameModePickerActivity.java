@@ -12,7 +12,8 @@ public class GameModePickerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_mode_picker);
 
-        addListenerOnButtonSkillQuiz();
+        addListenerOnButtonSkillQuizDeadMatch();
+        addListenerOnButtonSkillQuizDeadMatchHardcore();
     }
 
     @Override
@@ -21,8 +22,13 @@ public class GameModePickerActivity extends Activity {
         return true;
     }
 
-    private void addListenerOnButtonSkillQuiz() {
+    private void addListenerOnButtonSkillQuizDeadMatch() {
         final Button button = (Button)findViewById(R.id.ModePick1);
         button.setOnClickListener(new ButtonOnClickListenerDeadMatch(this, 3));
+    }
+
+    private void addListenerOnButtonSkillQuizDeadMatchHardcore() {
+        final Button button = (Button)findViewById(R.id.ModePick2);
+        button.setOnClickListener(new ButtonOnClickListenerDeadMatch(this, 1));
     }
 }
