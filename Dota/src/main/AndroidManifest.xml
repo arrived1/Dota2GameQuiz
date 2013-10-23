@@ -43,7 +43,7 @@
         </activity>
 
         <activity
-            android:name=".SkillQuizActivityDeadMatch"
+            android:name=".SkillQuizActivityDeathMatch"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
