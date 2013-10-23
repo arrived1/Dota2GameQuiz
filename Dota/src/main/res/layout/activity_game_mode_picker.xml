@@ -23,7 +23,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/logo"
             android:text="@string/gameModeName1" />
 
         <TextView
@@ -54,7 +53,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/logo"
             android:text="@string/gameModeName2" />
 
         <TextView
@@ -85,7 +83,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/logo"
             android:text="@string/gameModeName3" />
 
         <TextView
@@ -116,7 +113,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/logo"
             android:text="@string/gameModeName4" />
 
         <TextView
