@@ -68,6 +68,67 @@
             android:text="@string/gameModeExplanation2" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/group3"
+        android:orientation="vertical"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/group2"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" >
+
+        <Button
+            android:id="@+id/ModePick3"
+            style="@style/btnStylesorbus"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/logo"
+            android:text="@string/gameModeName3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textSize="25px"
+            android:layout_marginTop="5dp"
+            android:text="@string/gameModeExplanation3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/group4"
+        android:orientation="vertical"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/group3"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp" >
+
+        <Button
+            android:id="@+id/ModePick4"
+            style="@style/btnStylesorbus"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/logo"
+            android:text="@string/gameModeName4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textSize="25px"
+            android:layout_marginTop="5dp"
+            android:text="@string/gameModeExplanation4" />
+    </LinearLayout>
 
 
 </RelativeLayout>

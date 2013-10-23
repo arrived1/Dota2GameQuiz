@@ -45,4 +45,8 @@ public class Hero {
             return true;
         return false;
     }
+
+    public String getName() {
+        return name;
+    }
 }

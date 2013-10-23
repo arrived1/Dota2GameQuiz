@@ -738,4 +738,8 @@ public class DataBase {
     public int size() {
         return heroes.size();
     }
+
+    public void remove(int idx) {
+        heroes.remove(idx);
+    }
 }
