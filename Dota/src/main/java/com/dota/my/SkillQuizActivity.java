@@ -26,17 +26,15 @@ public class SkillQuizActivity extends Activity {
 
     private int correctAnswer = -1;
 
-
-
-    public SkillQuizActivity() {
-        this.sounds = new GameSounds(this);
-        this.score = new Score(this);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skill_quiz);
+
+        Bundle extras = getIntent().getExtras();
+        int chances = extras.getInt("CHANCES");
+        this.sounds = new GameSounds(this);
+        this.score = new Score(this, chances);
 
         this.timer = new Timer(this);
         score.prepareScore();

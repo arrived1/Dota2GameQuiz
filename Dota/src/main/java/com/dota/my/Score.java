@@ -13,8 +13,9 @@ public class Score {
     private TextView score;
     private TextView guesses;
 
-    public Score(Activity actv) {
+    public Score(Activity actv, int guessesLeft) {
         this.actv = actv;
+        this.guessesLeft = guessesLeft;
     }
 
     public void addPoint() {

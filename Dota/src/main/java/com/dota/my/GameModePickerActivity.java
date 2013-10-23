@@ -17,13 +17,12 @@ public class GameModePickerActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     private void addListenerOnButtonSkillQuiz() {
-        final Button button = (Button)findViewById(R.id.skillQuiz);
-        button.setOnClickListener(new ButtonOnClickListener(this));
+        final Button button = (Button)findViewById(R.id.ModePick1);
+        button.setOnClickListener(new ButtonOnClickListener(this, 3));
     }
 }
