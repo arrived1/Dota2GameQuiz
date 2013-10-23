@@ -23,6 +23,6 @@ public class GameModePickerActivity extends Activity {
 
     private void addListenerOnButtonSkillQuiz() {
         final Button button = (Button)findViewById(R.id.ModePick1);
-        button.setOnClickListener(new ButtonOnClickListener(this, 3));
+        button.setOnClickListener(new ButtonOnClickListenerDeadMatch(this, 3));
     }
 }

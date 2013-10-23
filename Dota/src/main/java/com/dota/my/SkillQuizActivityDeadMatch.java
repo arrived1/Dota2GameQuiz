@@ -14,7 +14,7 @@ import com.google.ads.AdRequest;
 import com.google.ads.AdView;
 
 
-public class SkillQuizActivity extends Activity {
+public class SkillQuizActivityDeadMatch extends Activity {
     private GameSounds sounds;
     private Score score;
     private Timer timer;
