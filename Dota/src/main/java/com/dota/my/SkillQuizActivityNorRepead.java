@@ -3,6 +3,7 @@ package com.dota.my;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -53,14 +54,14 @@ public class SkillQuizActivityNorRepead extends Activity {
 
     private void prepareQuestion()
     {
-        int heroIdx = prepareHero();
+        prepareHero();
         prepareCorrectAnswer();
 
         for(int i = 0; i < answers.size(); ++i) {
             if(i == correctAnswer)
                 continue;
 
-            int heroRand = randHeroForAnswers(heroIdx);
+            int heroRand = randHeroForAnswers();
             int skillRand = rand.nextInt(3);
             int resource = base.getHero(heroRand).getSkill(skillRand);
             answers.get(i).setImageResource(resource);
@@ -85,14 +86,12 @@ public class SkillQuizActivityNorRepead extends Activity {
         answers.get(correctAnswer).setImageResource(correctResource);
     }
 
-    private int randHeroForAnswers(int skipHeroIdx) {
+    private int randHeroForAnswers() {
         while(true) {
             int idx = rand.nextInt(base.size());
 
             if(newHero.getName() != base.getHero(idx).getName())
                 return idx;
-//            if(idx != skipHeroIdx)
-//                return idx;
         }
     }
 

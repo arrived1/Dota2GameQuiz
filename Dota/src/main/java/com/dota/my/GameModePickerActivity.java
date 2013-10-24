@@ -26,12 +26,12 @@ public class GameModePickerActivity extends Activity {
 
     private void addListenerOnButtonSkillQuizNoRepead() {
         final Button button = (Button)findViewById(R.id.ModePick1);
-        button.setOnClickListener(new ButtonOnClickListenerDeathMatch(this, 3));
+        button.setOnClickListener(new ButtonOnClickListeneNoRepead(this, 3));
     }
 
     private void addListenerOnButtonSkillQuizNoRepeadHardcore() {
         final Button button = (Button)findViewById(R.id.ModePick2);
-        button.setOnClickListener(new ButtonOnClickListenerDeathMatch(this, 1));
+        button.setOnClickListener(new ButtonOnClickListeneNoRepead(this, 1));
     }
 
     private void addListenerOnButtonSkillQuizDeadMatch() {
