@@ -38,4 +38,15 @@
         android:layout_marginTop="10dp"
         android:text="@string/skill_quiz" />
 
+    <Button
+        android:id="@+id/skillQuiz"
+        style="@style/btnStylesorbus"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/skillQuiz"
+        android:layout_marginTop="10dp"
+        android:text="@string/scores" />
+
 </RelativeLayout>

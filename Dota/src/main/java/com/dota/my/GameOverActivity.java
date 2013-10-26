@@ -28,5 +28,9 @@ public class GameOverActivity extends Activity {
 
         TextView time = (TextView)findViewById(R.id.timeRes);
         time.setText(timeTxt);
+
+        DatabaseHandler db = new DatabaseHandler(this);
+        DataBaseRecord record = new DataBaseRecord(Integer.toString(points), Integer.toString(0), timeTxt);
+        db.addRecord(record);
     }
 }

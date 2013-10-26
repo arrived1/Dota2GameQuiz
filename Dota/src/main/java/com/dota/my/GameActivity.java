@@ -16,6 +16,7 @@ public class GameActivity extends Activity {
         sounds.welcome();
 
         addListenerOnButtonSkillQuiz();
+        addListenerOnButtonScoreBoard();
     }
 
 //    @Override
@@ -28,5 +29,10 @@ public class GameActivity extends Activity {
     private void addListenerOnButtonSkillQuiz() {
         final Button button = (Button)findViewById(R.id.skillQuiz);
         button.setOnClickListener(new ButtonOnClickListenerGameModePicker(this));
+    }
+
+    private void addListenerOnButtonScoreBoard() {
+        final Button button = (Button)findViewById(R.id.skillQuiz);
+        button.setOnClickListener(new ButtonOnClickListenerScoreBoard(this));
     }
 }
