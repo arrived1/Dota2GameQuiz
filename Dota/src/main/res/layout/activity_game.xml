@@ -39,7 +39,7 @@
         android:text="@string/skill_quiz" />
 
     <Button
-        android:id="@+id/skillQuiz"
+        android:id="@+id/scoreBoard"
         style="@style/btnStylesorbus"
         android:layout_width="280dp"
         android:layout_height="wrap_content"

@@ -1,30 +1,43 @@
 package com.dota.my;
 
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
+
+import android.app.TabActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.widget.TabHost;
 
+public class ScoreBoardActivity extends TabActivity {
 
-public class ScoreBoardActivity extends FragmentActivity implements ActionBar.TabListener {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_board);
-    }
 
-    @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+        // create the TabHost that will contain the Tabs
+        TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
 
-    }
 
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+        TabHost.TabSpec tab1 = tabHost.newTabSpec("First Tab");
+        TabHost.TabSpec tab2 = tabHost.newTabSpec("Second Tab");
+        TabHost.TabSpec tab3 = tabHost.newTabSpec("Third tab");
 
-    }
+        // Set the Tab name and Activity
+        // that will be opened when particular Tab will be selected
+        tab1.setIndicator("Tab1");
+        tab1.setContent(new Intent(this,Tab1Activity.class));
 
-    @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+        tab2.setIndicator("Tab2");
+        tab2.setContent(new Intent(this,Tab1Activity.class));
+
+        tab3.setIndicator("Tab3");
+        tab3.setContent(new Intent(this,Tab1Activity.class));
+
+        /** Add the tabs  to the TabHost to display. */
+        tabHost.addTab(tab1);
+        tabHost.addTab(tab2);
+        tabHost.addTab(tab3);
 
     }
 }
+

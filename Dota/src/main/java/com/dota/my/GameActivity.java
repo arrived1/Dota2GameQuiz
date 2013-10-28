@@ -16,7 +16,7 @@ public class GameActivity extends Activity {
         sounds.welcome();
 
         addListenerOnButtonSkillQuiz();
-        addListenerOnButtonScoreBoard();
+//        addListenerOnButtonScoreBoard();
     }
 
 //    @Override
