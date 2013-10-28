@@ -17,10 +17,10 @@ public class ScoreBoardActivity extends TabActivity {
         // create the TabHost that will contain the Tabs
         TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
 
-
         TabHost.TabSpec tab1 = tabHost.newTabSpec("First Tab");
         TabHost.TabSpec tab2 = tabHost.newTabSpec("Second Tab");
         TabHost.TabSpec tab3 = tabHost.newTabSpec("Third tab");
+        TabHost.TabSpec tab4 = tabHost.newTabSpec("Third tab");
 
         // Set the Tab name and Activity
         // that will be opened when particular Tab will be selected
@@ -33,10 +33,14 @@ public class ScoreBoardActivity extends TabActivity {
         tab3.setIndicator("Tab3");
         tab3.setContent(new Intent(this,Tab1Activity.class));
 
+        tab4.setIndicator("Tab4");
+        tab4.setContent(new Intent(this,Tab1Activity.class));
+
         /** Add the tabs  to the TabHost to display. */
         tabHost.addTab(tab1);
         tabHost.addTab(tab2);
         tabHost.addTab(tab3);
+        tabHost.addTab(tab4);
 
     }
 }

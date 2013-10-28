@@ -106,15 +106,29 @@ public class SkillQuizActivityNorRepead extends Activity {
             sounds.incorrect();
             score.subGuesses();
             if(score.getGuessesLeft() == 0) {
-                timer.stopTimer();
-
-                Intent myIntent = new Intent(this, GameOverActivity.class);
-                myIntent.putExtra("SCORE", score.getPiots());
-                myIntent.putExtra("TIME", timer.getTimeTxt());
-                startActivity(myIntent);
-                finish();
+                gameOver();
             }
         }
+    }
+
+    private void gameOver() {
+        timer.stopTimer();
+
+        updateDataBaseScore();
+
+        Intent myIntent = new Intent(this, GameOverActivity.class);
+        myIntent.putExtra("SCORE", score.getPiots());
+        myIntent.putExtra("TIME", timer.getTimeTxt());
+        startActivity(myIntent);
+        finish();
+    }
+
+    private void updateDataBaseScore() {
+        DatabaseHandler db = new DatabaseHandler(this);
+        DataBaseRecord record = new DataBaseRecord(Integer.toString(score.getPiots()),
+                Integer.toString(score.getGuessesLeft()),
+                timer.getTimeTxt().toString());
+        db.addRecord(record);
     }
 
     private void prepareBoard() {
