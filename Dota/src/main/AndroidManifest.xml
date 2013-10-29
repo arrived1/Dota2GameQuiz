@@ -73,7 +73,7 @@
         </activity>
 
         <activity
-            android:name="Tab1Activity"
+            android:name=".TabActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>

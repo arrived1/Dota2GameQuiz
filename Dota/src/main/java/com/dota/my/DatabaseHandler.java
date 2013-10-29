@@ -73,8 +73,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public List<DataBaseRecord> getAllRecords() {
-        List<DataBaseRecord> recordList = new ArrayList<DataBaseRecord>();
+    public ArrayList<DataBaseRecord> getAllRecords() {
+        ArrayList<DataBaseRecord> recordList = new ArrayList<DataBaseRecord>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_STATISTIC;
 

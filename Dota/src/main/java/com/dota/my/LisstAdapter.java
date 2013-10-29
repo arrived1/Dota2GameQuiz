@@ -15,7 +15,6 @@ public class LisstAdapter extends ArrayAdapter<DataBaseRecord> {
     private final ArrayList<DataBaseRecord> itemsArrayList;
 
     public LisstAdapter(Context context, ArrayList<DataBaseRecord> itemsArrayList) {
-
         super(context, R.layout.row, itemsArrayList);
 
         this.context = context;
@@ -26,8 +25,7 @@ public class LisstAdapter extends ArrayAdapter<DataBaseRecord> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         // 1. Create inflater
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         // 2. Get rowView from inflater
         View rowView = inflater.inflate(R.layout.row, parent, false);
