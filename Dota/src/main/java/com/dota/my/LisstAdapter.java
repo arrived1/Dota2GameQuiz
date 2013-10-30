@@ -1,6 +1,7 @@
 package com.dota.my;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,14 +32,18 @@ public class LisstAdapter extends ArrayAdapter<DataBaseRecord> {
         View rowView = inflater.inflate(R.layout.row, parent, false);
 
         // 3. Get the two text view from the rowView
-        TextView labelView = (TextView) rowView.findViewById(R.id.label);
-        TextView valueView = (TextView) rowView.findViewById(R.id.value);
+        TextView labelView = (TextView)rowView.findViewById(R.id.label);
+        TextView valueView = (TextView)rowView.findViewById(R.id.value);
 
+        if(itemsArrayList.size() == 0) {
+            labelView.setText("No scores");
+            valueView.setText("No scores");
+        }
+        else {
         // 4. Set the text for textView
         labelView.setText(itemsArrayList.get(position).getScore());
         valueView.setText(itemsArrayList.get(position).getTime());
-
-        // 5. retrn rowView
+        }
         return rowView;
     }
 }

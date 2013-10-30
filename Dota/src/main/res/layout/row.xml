@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:paddingLeft="5dp"
-        android:textColor="@color/black">
+        android:textColor="@color/white">
     </TextView>
 
     <TextView

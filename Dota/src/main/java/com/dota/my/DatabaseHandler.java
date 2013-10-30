@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_CHANCES_LEFT + " TEXT,"
                 + KEY_TIME + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
+
+        Log.v("DEBUG", "DUPA " + Integer.toString(getRecordCount()));
     }
 
     @Override
@@ -63,19 +66,39 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 KEY_ID + "=?",
                 new String[] { String.valueOf(id) },
                 null, null, null, null);
+
         if (cursor != null)
             cursor.moveToFirst();
-
-        DataBaseRecord record = new DataBaseRecord(cursor.getString(0),
-                                                   cursor.getString(1),
-                                                   cursor.getString(2));
-        return record;
+//
+////        DataBaseRecord record = new DataBaseRecord(cursor.getString(0),
+////                                                   cursor.getString(1),
+////                                                   cursor.getString(2),
+////                                                   cursor.getString(3));
+        DataBaseRecord record = new DataBaseRecord(
+                cursor.getString(1),
+                cursor.getString(2),
+                cursor.getString(3));
+//        return record;
+        return new DataBaseRecord( "1", "1", "1");
     }
 
+    public void printAllRecords() {
+//        ArrayList<DataBaseRecord> recordList = new ArrayList<DataBaseRecord>();
+//        String selectQuery = "SELECT  * FROM " + TABLE_STATISTIC;
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        Cursor cursor = db.rawQuery(selectQuery, null);
+//
+//        if (cursor.moveToFirst()) {
+//            do {
+//                Log.d("DUPA records", cursor.getString(0) + " " + cursor.getString(1) + " " + cursor.getString(2));
+//            } while (cursor.moveToNext());
+//        }
+    }
 
     public ArrayList<DataBaseRecord> getAllRecords() {
         ArrayList<DataBaseRecord> recordList = new ArrayList<DataBaseRecord>();
-        // Select All Query
+//        Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_STATISTIC;
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -84,10 +107,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                DataBaseRecord record = new DataBaseRecord(cursor.getString(0),
-                                                            cursor.getString(1),
-                                                            cursor.getString(2));
-
+//                DataBaseRecord record = new DataBaseRecord(cursor.getString(0),
+//                                                           cursor.getString(1),
+//                                                           cursor.getString(2),
+//                                                           cursor.getString(3));
+                DataBaseRecord record = new DataBaseRecord(
+                                                           cursor.getString(1),
+                                                           cursor.getString(2),
+                                                           cursor.getString(3));
                 recordList.add(record);
             } while (cursor.moveToNext());
         }
@@ -99,30 +126,35 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String countQuery = "SELECT  * FROM " + TABLE_STATISTIC;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
-        cursor.close();
 
-        return cursor.getCount();
+        int count = 0;
+
+        if(cursor != null && !cursor.isClosed()){
+            count = cursor.getCount();
+            cursor.close();
+        }
+        return count;
     }
 
-    public int updateRecord(DataBaseRecord record) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(KEY_SCORE, record.getScore());
-        values.put(KEY_CHANCES_LEFT, record.getChancesLeft());
-        values.put(KEY_TIME, record.getTime());
-
-        return db.update(TABLE_STATISTIC,
-                         values,
-                         KEY_ID + " = ?",
-                         new String[] { String.valueOf(record.getId()) });
-    }
-
-    public void deleteRecord(DataBaseRecord record) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_STATISTIC,
-                  KEY_ID + " = ?",
-                  new String[] { String.valueOf(record.getId()) });
-        db.close();
-    }
+//    public int updateRecord(DataBaseRecord record) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//
+//        ContentValues values = new ContentValues();
+//        values.put(KEY_SCORE, record.getScore());
+//        values.put(KEY_CHANCES_LEFT, record.getChancesLeft());
+//        values.put(KEY_TIME, record.getTime());
+//
+//        return db.update(TABLE_STATISTIC,
+//                         values,
+//                         KEY_ID + " = ?",
+//                         new String[] { String.valueOf(record.getId()) });
+//    }
+//
+//    public void deleteRecord(DataBaseRecord record) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        db.delete(TABLE_STATISTIC,
+//                  KEY_ID + " = ?",
+//                  new String[] { String.valueOf(record.getId()) });
+//        db.close();
+//    }
 }
