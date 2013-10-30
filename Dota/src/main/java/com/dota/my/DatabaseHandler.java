@@ -26,7 +26,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_STATISTIC + "("
@@ -35,14 +34,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_CHANCES_LEFT + " TEXT,"
                 + KEY_TIME + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
-
-        Log.v("DEBUG", "DUPA " + Integer.toString(getRecordCount()));
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC);
-
         onCreate(db);
     }
 
@@ -69,48 +65,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         if (cursor != null)
             cursor.moveToFirst();
-//
-////        DataBaseRecord record = new DataBaseRecord(cursor.getString(0),
-////                                                   cursor.getString(1),
-////                                                   cursor.getString(2),
-////                                                   cursor.getString(3));
+
         DataBaseRecord record = new DataBaseRecord(
                 cursor.getString(1),
                 cursor.getString(2),
                 cursor.getString(3));
-//        return record;
-        return new DataBaseRecord( "1", "1", "1");
-    }
-
-    public void printAllRecords() {
-//        ArrayList<DataBaseRecord> recordList = new ArrayList<DataBaseRecord>();
-//        String selectQuery = "SELECT  * FROM " + TABLE_STATISTIC;
-//
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor cursor = db.rawQuery(selectQuery, null);
-//
-//        if (cursor.moveToFirst()) {
-//            do {
-//                Log.d("DUPA records", cursor.getString(0) + " " + cursor.getString(1) + " " + cursor.getString(2));
-//            } while (cursor.moveToNext());
-//        }
+        return record;
     }
 
     public ArrayList<DataBaseRecord> getAllRecords() {
         ArrayList<DataBaseRecord> recordList = new ArrayList<DataBaseRecord>();
-//        Select All Query
+
         String selectQuery = "SELECT  * FROM " + TABLE_STATISTIC;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-//                DataBaseRecord record = new DataBaseRecord(cursor.getString(0),
-//                                                           cursor.getString(1),
-//                                                           cursor.getString(2),
-//                                                           cursor.getString(3));
                 DataBaseRecord record = new DataBaseRecord(
                                                            cursor.getString(1),
                                                            cursor.getString(2),

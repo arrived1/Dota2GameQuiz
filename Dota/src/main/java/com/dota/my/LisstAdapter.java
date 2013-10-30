@@ -40,9 +40,9 @@ public class LisstAdapter extends ArrayAdapter<DataBaseRecord> {
             valueView.setText("No scores");
         }
         else {
-        // 4. Set the text for textView
-        labelView.setText(itemsArrayList.get(position).getScore());
-        valueView.setText(itemsArrayList.get(position).getTime());
+            // 4. Set the text for textView
+            labelView.setText(itemsArrayList.get(position).getScore());
+            valueView.setText(itemsArrayList.get(position).getTime());
         }
         return rowView;
     }

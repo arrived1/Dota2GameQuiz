@@ -125,23 +125,10 @@ public class SkillQuizActivityNorRepead extends Activity {
 
     private void updateDataBaseScore() {
         DatabaseHandler db = new DatabaseHandler(this);
-
-        Log.d("DUPA przed", Integer.toString(db.getRecordCount()));
-        Log.d("DUPA doDodania", Integer.toString(score.getPiots()) + " " +
-                                Integer.toString(score.getGuessesLeft()) + " " +
-                                timer.getTimeTxt().toString());
-
         DataBaseRecord record = new DataBaseRecord(Integer.toString(score.getPiots()),
                                                    Integer.toString(score.getGuessesLeft()),
                                                    timer.getTimeTxt().toString());
         db.addRecord(record);
-
-        Log.d("DUPA po", Integer.toString(db.getRecordCount()));
-
-        DataBaseRecord reco = db.getRecord(db.getRecordCount());
-
-        Log.d("DUPA ostatni dodany", reco.getScore() + " " + reco.getTime() + " " + reco.getChancesLeft());
-
     }
 
     private void prepareBoard() {

@@ -13,9 +13,6 @@ public class TabActivity extends ListActivity {
 
         DatabaseHandler db = new DatabaseHandler(this);
 
-        Log.d("DUPA tabActivity", Integer.toString(db.getRecordCount()));
-        db.printAllRecords();
-
         LisstAdapter adapter = new LisstAdapter(this, db.getAllRecords());
         setListAdapter(adapter);
     }
