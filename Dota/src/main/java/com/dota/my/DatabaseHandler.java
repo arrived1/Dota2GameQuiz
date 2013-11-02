@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -91,23 +93,37 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
-        return recordList;
+        return sortList(recordList);
     }
 
-    public int getRecordCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_STATISTIC;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
-
-        int count = 0;
-
-        if(cursor != null && !cursor.isClosed()){
-            count = cursor.getCount();
-            cursor.close();
+    public class DataBaseRecordComparator implements Comparator<DataBaseRecord> {
+        @Override
+        public int compare(DataBaseRecord o1, DataBaseRecord o2) {
+            Integer i1 = Integer.parseInt(o1.getScore());
+            Integer i2 = Integer.parseInt(o2.getScore());
+            return i1.compareTo(i2);
         }
-        return count;
     }
 
+    private ArrayList<DataBaseRecord> sortList(ArrayList<DataBaseRecord> list) {
+        Collections.sort(list, new DataBaseRecordComparator());
+        return list;
+    }
+
+//    public int getRecordCount() {
+//        String countQuery = "SELECT  * FROM " + TABLE_STATISTIC;
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(countQuery, null);
+//
+//        int count = 0;
+//
+//        if(cursor != null && !cursor.isClosed()){
+//            count = cursor.getCount();
+//            cursor.close();
+//        }
+//        return count;
+//    }
+//
 //    public int updateRecord(DataBaseRecord record) {
 //        SQLiteDatabase db = this.getWritableDatabase();
 //

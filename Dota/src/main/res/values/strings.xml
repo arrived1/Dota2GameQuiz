@@ -10,7 +10,8 @@
     <string name="points">Points: </string>
     <string name="guesses_left">Guesses left: </string>
     <string name="time">Time: </string>
-    <string name="scores">Scores</string>
+    <string name="score">Score: </string>
+    <string name="scores">Scores: </string>
 
     <string name="chronometer_initial_format">%s</string>
 
