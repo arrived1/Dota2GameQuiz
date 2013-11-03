@@ -54,19 +54,26 @@ public class SkillQuizActivityNorRepead extends Activity {
 
     private void prepareQuestion()
     {
-        prepareHero();
-        prepareCorrectAnswer();
+        if(restOfHeros.size() == 0) {
+            gameOver();
+        }
+        else {
+            prepareHero();
+            prepareCorrectAnswer();
 
-        for(int i = 0; i < answers.size(); ++i) {
-            if(i == correctAnswer)
-                continue;
+            for(int i = 0; i < answers.size(); ++i) {
+                if(i == correctAnswer)
+                    continue;
 
-            int heroRand = randHeroForAnswers();
-            int skillRand = rand.nextInt(3);
-            int resource = base.getHero(heroRand).getSkill(skillRand);
-            answers.get(i).setImageResource(resource);
+                int heroRand = randHeroForAnswers();
+                int skillRand = rand.nextInt(3);
+                int resource = base.getHero(heroRand).getSkill(skillRand);
+                answers.get(i).setImageResource(resource);
+            }
         }
     }
+
+
 
     private int prepareHero() {
         int heroIdx = rand.nextInt(restOfHeros.size());
