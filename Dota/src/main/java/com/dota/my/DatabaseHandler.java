@@ -5,12 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
@@ -94,15 +91,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
         return sortList(recordList);
-    }
-
-    public class DataBaseRecordComparator implements Comparator<DataBaseRecord> {
-        @Override
-        public int compare(DataBaseRecord o1, DataBaseRecord o2) {
-            Integer i1 = Integer.parseInt(o1.getScore());
-            Integer i2 = Integer.parseInt(o2.getScore());
-            return i1.compareTo(i2);
-        }
     }
 
     private ArrayList<DataBaseRecord> sortList(ArrayList<DataBaseRecord> list) {
