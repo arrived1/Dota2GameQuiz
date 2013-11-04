@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Dota2 Game Quiz</string>
-    <string name="action_settings">Ustawienia</string>
-
-    <string name="hero_quiz">Hero quiz</string>
-    <string name="skill_quiz">Skill quiz</string>
-
     <string name="points">Punkty: </string>
     <string name="guesses_left">Szanse: </string>
     <string name="time">Czas: </string>
-    <string name="game_over">Przegrałeś</string>
+    <string name="score">Wynik: </string>
+    <string name="scores">Wyniki</string>
+
+    <string name="game_over">Przegrales!</string>
+    <string name="game_win">Wygrales!</string>
+
+    <string name="chronometer_initial_format">%s</string>
+
+    <string name="gameModeName1">Single Random</string>
+    <string name="gameModeName2">Single Random Hardcore</string>
+    <string name="gameModeName3">Death Match</string>
+    <string name="gameModeName4">Death Match Hardcore</string>
+    <string name="gameModeExplanation1">Masz 3 szanse, kazdy bohater jest losowany jeden raz!</string>
+    <string name="gameModeExplanation2">Hardcore, masz tylko 3 szanse, kazdy bohater jest losowany jeden raz!</string>
+    <string name="gameModeExplanation3">Masz 3 szanse, gra sie nigdy nie konczy!</string>
+    <string name="gameModeExplanation4">Hardcore, masz tylko 1 szanse, gra sie nigdy nie konczy!</string>
 
     <string name="chronometer_initial_format">%s</string>
 
