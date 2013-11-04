@@ -54,9 +54,7 @@ public class SkillQuizActivityNorRepead extends Activity {
 
     private void prepareQuestion()
     {
-        Log.e("DUPA", Integer.toString(restOfHeros.size()));
         if(restOfHeros.size() == 0) {
-            Log.e("DUPA IN", Integer.toString(restOfHeros.size()));
             gameWin();
         }
         else {

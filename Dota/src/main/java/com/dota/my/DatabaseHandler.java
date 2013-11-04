@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -89,14 +90,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 recordList.add(record);
             } while (cursor.moveToNext());
         }
-
-        return sortList(recordList);
+        return recordList;
     }
 
-    private ArrayList<DataBaseRecord> sortList(ArrayList<DataBaseRecord> list) {
-        Collections.sort(list, new DataBaseRecordComparator());
-        return list;
-    }
 
 //    public int getRecordCount() {
 //        String countQuery = "SELECT  * FROM " + TABLE_STATISTIC;
