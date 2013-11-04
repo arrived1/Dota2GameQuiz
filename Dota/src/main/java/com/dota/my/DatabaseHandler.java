@@ -10,25 +10,43 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Collections;
 
+enum TABLE {
+    DeathMetch,
+    SingleRandom
+}
+
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "statisticManager";
-    private static final String TABLE_STATISTIC = "statistic";
-
+    private static final String TABLE_STATISTIC_SINGLE_RANDOM = "statisticSingleRandom";
+    private static final String TABLE_STATISTIC_DEATH_MATCH = "statisticDeathMatch";
+    private static String TABLE_STATISTIC = "";
 
     private static final String KEY_ID = "id";
     private static final String KEY_SCORE = "score";
     private static final String KEY_CHANCES_LEFT = "chancesLeft";
     private static final String KEY_TIME = "time";
 
-    public DatabaseHandler(Context context) {
+    public DatabaseHandler(Context context, TABLE type) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
+        if(type == TABLE.DeathMetch) {
+            TABLE_STATISTIC = TABLE_STATISTIC_SINGLE_RANDOM;
+        }
+        if(type == TABLE.SingleRandom) {
+            TABLE_STATISTIC = TABLE_STATISTIC_DEATH_MATCH;
+        }
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_STATISTIC + "("
+        createTable(db, TABLE_STATISTIC_SINGLE_RANDOM);
+        createTable(db, TABLE_STATISTIC_DEATH_MATCH);
+    }
+
+    private void createTable(SQLiteDatabase db, String tableName) {
+        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + tableName + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_SCORE + " TEXT,"
                 + KEY_CHANCES_LEFT + " TEXT,"
@@ -38,7 +56,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC_SINGLE_RANDOM);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC_DEATH_MATCH);
         onCreate(db);
     }
 

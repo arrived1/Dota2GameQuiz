@@ -143,7 +143,7 @@ public class SkillQuizActivityNorRepead extends Activity {
     }
 
     private void updateDataBaseScore() {
-        DatabaseHandler db = new DatabaseHandler(this);
+        DatabaseHandler db = new DatabaseHandler(this, TABLE.SingleRandom);
         DataBaseRecord record = new DataBaseRecord(Integer.toString(score.getPiots()),
                                                    Integer.toString(score.getGuessesLeft()),
                                                    timer.getTimeTxt().toString());
