@@ -21,6 +21,6 @@
     <string name="gameModeExplanation3">You have 3 chances, game never end!</string>
     <string name="gameModeExplanation4">Hardcore mode, you have only 1 chance, game never ends!</string>
 
-    <string name="chronometer_initial_format">%s</string>
+
 
 </resources>
