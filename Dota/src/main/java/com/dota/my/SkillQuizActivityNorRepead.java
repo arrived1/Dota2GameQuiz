@@ -54,8 +54,10 @@ public class SkillQuizActivityNorRepead extends Activity {
 
     private void prepareQuestion()
     {
+        Log.e("DUPA", Integer.toString(restOfHeros.size()));
         if(restOfHeros.size() == 0) {
-            gameOver();
+            Log.e("DUPA IN", Integer.toString(restOfHeros.size()));
+            gameWin();
         }
         else {
             prepareHero();
@@ -116,6 +118,18 @@ public class SkillQuizActivityNorRepead extends Activity {
                 gameOver();
             }
         }
+    }
+
+    private void gameWin() {
+        timer.stopTimer();
+
+        updateDataBaseScore();
+
+        Intent myIntent = new Intent(this, GameWinActivity.class);
+        myIntent.putExtra("SCORE", score.getPiots());
+        myIntent.putExtra("TIME", timer.getTimeTxt());
+        startActivity(myIntent);
+        finish();
     }
 
     private void gameOver() {

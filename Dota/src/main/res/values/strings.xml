@@ -11,7 +11,10 @@
     <string name="guesses_left">Guesses left: </string>
     <string name="time">Time: </string>
     <string name="score">Score: </string>
-    <string name="scores">Scores: </string>
+    <string name="scores">Scores</string>
+
+    <string name="game_over">Game Over!</string>
+    <string name="game_win">You Win!</string>
 
     <string name="chronometer_initial_format">%s</string>
 
