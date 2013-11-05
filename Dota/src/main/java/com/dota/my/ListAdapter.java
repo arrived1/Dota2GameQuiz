@@ -44,7 +44,7 @@ public class ListAdapter extends ArrayAdapter<DataBaseRecord> {
             timeView.setText("");
         }
         else {
-            positionView.setText(Integer.toString(position));
+            positionView.setText(Integer.toString(position + 1));
             scoreView.setText(itemsArrayList.get(position).getScore());
             timeView.setText(itemsArrayList.get(position).getTime());
         }

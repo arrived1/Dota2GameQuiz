@@ -9,6 +9,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 enum TABLE {
     DeathMetch,
@@ -102,14 +103,33 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                DataBaseRecord record = new DataBaseRecord(
-                                                           cursor.getString(1),
+                DataBaseRecord record = new DataBaseRecord(cursor.getString(1),
                                                            cursor.getString(2),
                                                            cursor.getString(3));
                 recordList.add(record);
             } while (cursor.moveToNext());
         }
+        srotRecords(recordList);
         return recordList;
+    }
+
+    private class DataBaseRecordComparator implements Comparator<DataBaseRecord> {
+        @Override
+        public int compare(DataBaseRecord o1, DataBaseRecord o2)
+        {
+            Integer i1 = Integer.parseInt(o1.getScore());
+            Integer i2 = Integer.parseInt(o2.getScore());
+            if(i1 == i2)
+                return 1;
+            else if(i1 < i2)
+                return 1;
+            else
+                return -1;
+        }
+    }
+
+    private void srotRecords(ArrayList<DataBaseRecord> array) {
+        Collections.sort(array, new DataBaseRecordComparator());
     }
 
 
