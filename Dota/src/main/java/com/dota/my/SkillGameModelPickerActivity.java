@@ -2,10 +2,9 @@ package com.dota.my;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.Button;
 
-public class GameModePickerActivity extends Activity {
+public class SkillGameModelPickerActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,20 +17,20 @@ public class GameModePickerActivity extends Activity {
         addListenerOnButtonSkillQuizDeadMatchHardcore();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
 
     private void addListenerOnButtonSkillQuizNoRepead() {
         final Button button = (Button)findViewById(R.id.ModePick1);
-        button.setOnClickListener(new ButtonOnClickListeneNoRepead(this, 3));
+        button.setOnClickListener(new ButtonOnClickListeneSkillNoRepead(this, 3));
     }
 
     private void addListenerOnButtonSkillQuizNoRepeadHardcore() {
         final Button button = (Button)findViewById(R.id.ModePick2);
-        button.setOnClickListener(new ButtonOnClickListeneNoRepead(this, 1));
+        button.setOnClickListener(new ButtonOnClickListeneSkillNoRepead(this, 1));
     }
 
     private void addListenerOnButtonSkillQuizDeadMatch() {

@@ -39,13 +39,24 @@
         android:text="@string/skill_quiz" />
 
     <Button
-        android:id="@+id/scoreBoard"
+        android:id="@+id/heroQuiz"
         style="@style/btnStylesorbus"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/skillQuiz"
+        android:layout_marginTop="10dp"
+        android:text="@string/hero_quiz" />
+
+    <Button
+        android:id="@+id/scoreBoard"
+        style="@style/btnStylesorbus"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/heroQuiz"
         android:layout_marginTop="10dp"
         android:text="@string/scores" />
 

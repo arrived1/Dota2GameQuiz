@@ -2,7 +2,6 @@ package com.dota.my;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.Button;
 
 public class GameActivity extends Activity {
@@ -16,6 +15,7 @@ public class GameActivity extends Activity {
         sounds.welcome();
 
         addListenerOnButtonSkillQuiz();
+        addListenerOnButtonHeroQuiz();
         addListenerOnButtonScoreBoard();
     }
 
@@ -28,7 +28,12 @@ public class GameActivity extends Activity {
 
     private void addListenerOnButtonSkillQuiz() {
         final Button button = (Button)findViewById(R.id.skillQuiz);
-        button.setOnClickListener(new ButtonOnClickListenerGameModePicker(this));
+        button.setOnClickListener(new ButtonOnClickListenerSkillGameModePicker(this));
+    }
+
+    private void addListenerOnButtonHeroQuiz() {
+        final Button button = (Button)findViewById(R.id.heroQuiz);
+        button.setOnClickListener(new ButtonOnClickListenerHeroGameModePicker(this));
     }
 
     private void addListenerOnButtonScoreBoard() {

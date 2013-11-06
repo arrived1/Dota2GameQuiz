@@ -37,7 +37,13 @@
         </activity>
 
         <activity
-            android:name="GameModePickerActivity"
+            android:name=".SkillGameModelPickerActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
+            android:name=".HeroGameModePickerActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>
