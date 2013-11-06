@@ -742,4 +742,12 @@ public class DataBase {
     public void remove(int idx) {
         heroes.remove(idx);
     }
+
+    public Hero find(String name) {
+        for(int i = 0; i < heroes.size(); ++i) {
+            if(name.matches(heroes.get(i).getName()))
+                return heroes.get(i);
+        }
+        return null;
+    }
 }

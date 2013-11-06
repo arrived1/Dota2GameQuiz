@@ -112,6 +112,7 @@ public class SkillQuizActivityDeathMatch extends Activity {
         updateDataBaseScore();
 
         Intent myIntent = new Intent(this, GameOverActivity.class);
+        myIntent.putExtra("HERO", newHero.getName());
         myIntent.putExtra("SCORE", score.getPiots());
         myIntent.putExtra("TIME", timer.getTimeTxt());
         startActivity(myIntent);

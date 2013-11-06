@@ -19,9 +19,25 @@ public class GameOverActivity extends Activity {
         Bundle extras = getIntent().getExtras();
         int points = extras.getInt("SCORE");
         String timeTxt = extras.getString("TIME");
+        String heroName = extras.getString("HERO");
+
+        DataBase base = new DataBase();
+        Hero hero = base.find(heroName);
 
         ImageView gameOverImage = (ImageView)findViewById(R.id.logo);
-        gameOverImage.setImageResource(R.drawable.dota);
+        gameOverImage.setImageResource(hero.getPic());
+
+        ImageView skill0 = (ImageView)findViewById(R.id.skill0);
+        skill0.setImageResource(hero.getSkill(0));
+
+        ImageView skill1 = (ImageView)findViewById(R.id.skill1);
+        skill1.setImageResource(hero.getSkill(1));
+
+        ImageView skill2 = (ImageView)findViewById(R.id.skill2);
+        skill2.setImageResource(hero.getSkill(2));
+
+        ImageView skill3 = (ImageView)findViewById(R.id.skill3);
+        skill3.setImageResource(hero.getSkill(3));
 
         TextView score = (TextView)findViewById(R.id.scoreRes);
         score.setText(Integer.toString(points));
