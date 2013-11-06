@@ -145,9 +145,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     return 1;
             }
             else if(min1 < min2)
-                return 1;
-            else
                 return -1;
+            else
+                return 1;
 
         }
     }
