@@ -73,8 +73,6 @@ public class SkillQuizActivityNorRepead extends Activity {
         }
     }
 
-
-
     private void prepareHero() {
         int heroIdx = rand.nextInt(restOfHeros.size());
         newHero = restOfHeros.getHero(heroIdx);

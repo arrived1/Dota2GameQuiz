@@ -52,28 +52,26 @@ public class SkillQuizActivityDeathMatch extends Activity {
 
     private void prepareQuestion()
     {
-        int heroIdx = prepareHero();
+        prepareHero();
         prepareCorrectAnswer();
 
         for(int i = 0; i < answers.size(); ++i) {
             if(i == correctAnswer)
                 continue;
 
-            int heroRand = randHeroForAnswers(heroIdx);
+            int heroRand = randHeroForAnswers();
             int skillRand = rand.nextInt(3);
             int resource = base.getHero(heroRand).getSkill(skillRand);
             answers.get(i).setImageResource(resource);
         }
     }
 
-    private int prepareHero() {
+    private void prepareHero() {
         int heroIdx = rand.nextInt(base.size());
         newHero = base.getHero(heroIdx);
 
         ImageView heroPic = (ImageView) findViewById(R.id.pic);
         heroPic.setImageResource(newHero.getPic());
-
-        return heroIdx;
     }
 
     private void  prepareCorrectAnswer() {
@@ -83,11 +81,11 @@ public class SkillQuizActivityDeathMatch extends Activity {
         answers.get(correctAnswer).setImageResource(correctResource);
     }
 
-    private int randHeroForAnswers(int skipHeroIdx) {
+    private int randHeroForAnswers() {
         while(true) {
             int idx = rand.nextInt(base.size());
 
-            if(idx != skipHeroIdx)
+            if(newHero.getName() != base.getHero(idx).getName())
                 return idx;
         }
     }
