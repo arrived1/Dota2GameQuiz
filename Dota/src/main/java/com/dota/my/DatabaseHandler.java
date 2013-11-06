@@ -18,6 +18,7 @@ enum TABLE {
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
+    private static final int DATABASE_SIZE = 100;
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "statisticManager";
     private static final String TABLE_STATISTIC_SINGLE_RANDOM = "statisticSingleRandom";
@@ -74,24 +75,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public DataBaseRecord getRecord(int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor cursor = db.query(TABLE_STATISTIC,
-                new String[] { KEY_ID, KEY_SCORE, KEY_CHANCES_LEFT, KEY_TIME },
-                KEY_ID + "=?",
-                new String[] { String.valueOf(id) },
-                null, null, null, null);
-
-        if (cursor != null)
-            cursor.moveToFirst();
-
-        DataBaseRecord record = new DataBaseRecord(
-                cursor.getString(1),
-                cursor.getString(2),
-                cursor.getString(3));
-        return record;
-    }
 
     public ArrayList<DataBaseRecord> getAllRecords() {
         ArrayList<DataBaseRecord> recordList = new ArrayList<DataBaseRecord>();
@@ -113,23 +96,63 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return recordList;
     }
 
+    public void cleanup() {
+        int size = size();
+
+        if(size() > DATABASE_SIZE) {
+            ArrayList<DataBaseRecord> records = getAllRecords();
+            sortRecords(records);
+
+            for(int i = DATABASE_SIZE; i < size; ++i) {
+                deleteRecord(i);
+            }
+        }
+        size = size();
+    }
+
+    public void deleteRecord(Integer id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_STATISTIC,
+                  KEY_ID + " = ?",
+                  new String[] { String.valueOf(id) });
+        db.close();
+    }
+
+    public int size() {
+        String countQuery = "SELECT  * FROM " + TABLE_STATISTIC;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+
+        int count = 0;
+
+        if(cursor != null && !cursor.isClosed()){
+            count = cursor.getCount();
+            cursor.close();
+        }
+        return count;
+    }
+
     private void sortRecords(ArrayList<DataBaseRecord> array) {
         Collections.sort(array, new DataBaseRecordComparator());
     }
 
-
-//    public int getRecordCount() {
-//        String countQuery = "SELECT  * FROM " + TABLE_STATISTIC;
+//    public DataBaseRecord getRecord(int id) {
 //        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(countQuery, null);
 //
-//        int count = 0;
+//        Cursor cursor = db.query(TABLE_STATISTIC,
+//                new String[] { KEY_ID, KEY_SCORE, KEY_CHANCES_LEFT, KEY_TIME },
+//                KEY_ID + "=?",
+//                new String[] { String.valueOf(id) },
+//                null, null, null, null);
 //
-//        if(cursor != null && !cursor.isClosed()){
-//            count = cursor.getCount();
-//            cursor.close();
-//        }
-//        return count;
+//        if (cursor != null)
+//            cursor.moveToFirst();
+//
+//        DataBaseRecord record = new DataBaseRecord(
+//                cursor.getString(1),
+//                cursor.getString(2),
+//                cursor.getString(3));
+//        return record;
 //    }
 //
 //    public int updateRecord(DataBaseRecord record) {
@@ -146,11 +169,5 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 //                         new String[] { String.valueOf(record.getId()) });
 //    }
 //
-//    public void deleteRecord(DataBaseRecord record) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        db.delete(TABLE_STATISTIC,
-//                  KEY_ID + " = ?",
-//                  new String[] { String.valueOf(record.getId()) });
-//        db.close();
-//    }
+
 }

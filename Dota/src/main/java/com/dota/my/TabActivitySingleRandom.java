@@ -10,6 +10,7 @@ public class TabActivitySingleRandom extends ListActivity {
         super.onCreate(icicle);
 
         DatabaseHandler db = new DatabaseHandler(this, TABLE.SingleRandom);
+        db.cleanup();
 
         ListAdapter adapter = new ListAdapter(this, db.getAllRecords());
         setListAdapter(adapter);
