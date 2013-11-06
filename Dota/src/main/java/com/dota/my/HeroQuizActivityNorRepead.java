@@ -57,7 +57,7 @@ public class HeroQuizActivityNorRepead extends Activity {
             gameWin();
         }
         else {
-            prepareHero();
+            prepareSkill();
             prepareCorrectAnswer();
 
             for(int i = 0; i < answers.size(); ++i) {
@@ -65,31 +65,30 @@ public class HeroQuizActivityNorRepead extends Activity {
                     continue;
 
                 int heroRand = randHeroForAnswers();
-                int skillRand = rand.nextInt(3);
-                int resource = base.getHero(heroRand).getSkill(skillRand);
+//                int skillRand = rand.nextInt(3);
+//                int resource = base.getHero(heroRand).getSkill(skillRand);
+                int resource = base.getHero(heroRand).getPic();
                 answers.get(i).setImageResource(resource);
             }
         }
     }
 
-
-
-    private int prepareHero() {
+    private void prepareSkill() {
         int heroIdx = rand.nextInt(restOfHeros.size());
         newHero = restOfHeros.getHero(heroIdx);
         restOfHeros.remove(heroIdx);
 
-        ImageView heroPic = (ImageView) findViewById(R.id.pic);
-        heroPic.setImageResource(newHero.getPic());
+        int randSkill = rand.nextInt(3);
 
-        return heroIdx;
+        ImageView heroPic = (ImageView) findViewById(R.id.pic);
+        heroPic.setImageResource(newHero.getSkill(randSkill));
     }
 
     private void  prepareCorrectAnswer() {
         correctAnswer = rand.nextInt(answers.size());
-        int correctSkill = rand.nextInt(3);
-        int correctResource = newHero.getSkill(correctSkill);
-        answers.get(correctAnswer).setImageResource(correctResource);
+//        int correctSkill = rand.nextInt(3);
+        int correctHero = newHero.getPic();
+        answers.get(correctAnswer).setImageResource(correctHero);
     }
 
     private int randHeroForAnswers() {
@@ -120,7 +119,7 @@ public class HeroQuizActivityNorRepead extends Activity {
     private void gameWin() {
         timer.stopTimer();
 
-        updateDataBaseScore();
+//        updateDataBaseScore();
 
         Intent myIntent = new Intent(this, GameWinActivity.class);
         myIntent.putExtra("SCORE", score.getPiots());

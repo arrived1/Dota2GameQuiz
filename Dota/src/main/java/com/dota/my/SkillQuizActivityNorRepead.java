@@ -75,15 +75,13 @@ public class SkillQuizActivityNorRepead extends Activity {
 
 
 
-    private int prepareHero() {
+    private void prepareHero() {
         int heroIdx = rand.nextInt(restOfHeros.size());
         newHero = restOfHeros.getHero(heroIdx);
         restOfHeros.remove(heroIdx);
 
         ImageView heroPic = (ImageView) findViewById(R.id.pic);
         heroPic.setImageResource(newHero.getPic());
-
-        return heroIdx;
     }
 
     private void  prepareCorrectAnswer() {
