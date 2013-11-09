@@ -65,8 +65,6 @@ public class HeroQuizActivityNorRepead extends Activity {
                     continue;
 
                 int heroRand = randHeroForAnswers();
-//                int skillRand = rand.nextInt(3);
-//                int resource = base.getHero(heroRand).getSkill(skillRand);
                 int resource = base.getHero(heroRand).getPic();
                 answers.get(i).setImageResource(resource);
             }
@@ -86,7 +84,6 @@ public class HeroQuizActivityNorRepead extends Activity {
 
     private void  prepareCorrectAnswer() {
         correctAnswer = rand.nextInt(answers.size());
-//        int correctSkill = rand.nextInt(3);
         int correctHero = newHero.getPic();
         answers.get(correctAnswer).setImageResource(correctHero);
     }
@@ -148,6 +145,8 @@ public class HeroQuizActivityNorRepead extends Activity {
                                                    timer.getTimeTxt().toString());
         db.addRecord(record);
     }
+
+
 
     private void prepareBoard() {
         ImageButton button0 = (ImageButton)findViewById(R.id.image0);
