@@ -94,7 +94,7 @@ public class SkillQuizActivityDeathMatch extends Activity {
         if(correctAnswer == buttonId) {
             score.addPoint();
             sounds.correct();
-            sounds.correctNumber(score.getPiots());
+            sounds.correctNumber(score.getPoints());
             prepareQuestion();
         }
         else {
@@ -113,7 +113,7 @@ public class SkillQuizActivityDeathMatch extends Activity {
 
         Intent myIntent = new Intent(this, GameOverActivity.class);
         myIntent.putExtra("HERO", newHero.getName());
-        myIntent.putExtra("SCORE", score.getPiots());
+        myIntent.putExtra("SCORE", score.getPoints());
         myIntent.putExtra("TIME", timer.getTimeTxt());
         startActivity(myIntent);
         finish();
@@ -121,7 +121,7 @@ public class SkillQuizActivityDeathMatch extends Activity {
 
     private void updateDataBaseScore() {
         DatabaseHandler db = new DatabaseHandler(this, TABLE.DeathMetch);
-        DataBaseRecord record = new DataBaseRecord(Integer.toString(score.getPiots()),
+        DataBaseRecord record = new DataBaseRecord(Integer.toString(score.getPoints()),
                                                    Integer.toString(score.getGuessesLeft()),
                                                    timer.getTimeTxt().toString());
         db.addRecord(record);

@@ -30,7 +30,7 @@ public class HeroQuizActivityNorRepead extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_skill_quiz);
+        setContentView(R.layout.activity_hero_quiz);
 
         Bundle extras = getIntent().getExtras();
         int chances = extras.getInt("CHANCES");
@@ -65,11 +65,8 @@ public class HeroQuizActivityNorRepead extends Activity {
                     continue;
 
                 int heroRand = randHeroForAnswers();
-//                int resource = base.getHero(heroRand).getPic();
                 int resource = base.getHero(heroRand).getSmallPic();
                 answers.get(i).setImageResource(resource);
-                answers.get(i).setMinimumHeight(50);
-                answers.get(i).setMinimumWidth(100);
             }
         }
     }
@@ -87,7 +84,7 @@ public class HeroQuizActivityNorRepead extends Activity {
 
     private void  prepareCorrectAnswer() {
         correctAnswer = rand.nextInt(answers.size());
-        int correctHero = newHero.getPic();
+        int correctHero = newHero.getSmallPic();
         answers.get(correctAnswer).setImageResource(correctHero);
     }
 
@@ -104,7 +101,7 @@ public class HeroQuizActivityNorRepead extends Activity {
         if(correctAnswer == buttonId) {
             score.addPoint();
             sounds.correct();
-            sounds.correctNumber(score.getPiots());
+            sounds.correctNumber(score.getPoints());
             prepareQuestion();
         }
         else {
@@ -122,7 +119,7 @@ public class HeroQuizActivityNorRepead extends Activity {
 //        updateDataBaseScore();
 
         Intent myIntent = new Intent(this, GameWinActivity.class);
-        myIntent.putExtra("SCORE", score.getPiots());
+        myIntent.putExtra("SCORE", score.getPoints());
         myIntent.putExtra("TIME", timer.getTimeTxt());
         startActivity(myIntent);
         finish();
@@ -135,7 +132,7 @@ public class HeroQuizActivityNorRepead extends Activity {
 
         Intent myIntent = new Intent(this, GameOverActivity.class);
         myIntent.putExtra("HERO", newHero.getName());
-        myIntent.putExtra("SCORE", score.getPiots());
+        myIntent.putExtra("SCORE", score.getPoints());
         myIntent.putExtra("TIME", timer.getTimeTxt());
         startActivity(myIntent);
         finish();
@@ -143,7 +140,7 @@ public class HeroQuizActivityNorRepead extends Activity {
 
     private void updateDataBaseScore() {
         DatabaseHandler db = new DatabaseHandler(this, TABLE.SingleRandom);
-        DataBaseRecord record = new DataBaseRecord(Integer.toString(score.getPiots()),
+        DataBaseRecord record = new DataBaseRecord(Integer.toString(score.getPoints()),
                                                    Integer.toString(score.getGuessesLeft()),
                                                    timer.getTimeTxt().toString());
         db.addRecord(record);

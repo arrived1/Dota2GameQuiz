@@ -28,7 +28,7 @@ public class Score {
         guesses.setText(Integer.toString(guessesLeft));
     }
 
-    public int getPiots() {
+    public int getPoints() {
         return points;
     }
 

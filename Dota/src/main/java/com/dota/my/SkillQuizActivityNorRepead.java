@@ -103,7 +103,7 @@ public class SkillQuizActivityNorRepead extends Activity {
         if(correctAnswer == buttonId) {
             score.addPoint();
             sounds.correct();
-            sounds.correctNumber(score.getPiots());
+            sounds.correctNumber(score.getPoints());
             prepareQuestion();
         }
         else {
@@ -121,7 +121,7 @@ public class SkillQuizActivityNorRepead extends Activity {
         updateDataBaseScore();
 
         Intent myIntent = new Intent(this, GameWinActivity.class);
-        myIntent.putExtra("SCORE", score.getPiots());
+        myIntent.putExtra("SCORE", score.getPoints());
         myIntent.putExtra("TIME", timer.getTimeTxt());
         startActivity(myIntent);
         finish();
@@ -134,7 +134,7 @@ public class SkillQuizActivityNorRepead extends Activity {
 
         Intent myIntent = new Intent(this, GameOverActivity.class);
         myIntent.putExtra("HERO", newHero.getName());
-        myIntent.putExtra("SCORE", score.getPiots());
+        myIntent.putExtra("SCORE", score.getPoints());
         myIntent.putExtra("TIME", timer.getTimeTxt());
         startActivity(myIntent);
         finish();
@@ -142,7 +142,7 @@ public class SkillQuizActivityNorRepead extends Activity {
 
     private void updateDataBaseScore() {
         DatabaseHandler db = new DatabaseHandler(this, TABLE.SingleRandom);
-        DataBaseRecord record = new DataBaseRecord(Integer.toString(score.getPiots()),
+        DataBaseRecord record = new DataBaseRecord(Integer.toString(score.getPoints()),
                                                    Integer.toString(score.getGuessesLeft()),
                                                    timer.getTimeTxt().toString());
         db.addRecord(record);
