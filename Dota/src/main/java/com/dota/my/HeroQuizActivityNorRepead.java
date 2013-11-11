@@ -65,8 +65,11 @@ public class HeroQuizActivityNorRepead extends Activity {
                     continue;
 
                 int heroRand = randHeroForAnswers();
-                int resource = base.getHero(heroRand).getPic();
+//                int resource = base.getHero(heroRand).getPic();
+                int resource = base.getHero(heroRand).getSmallPic();
                 answers.get(i).setImageResource(resource);
+                answers.get(i).setMinimumHeight(50);
+                answers.get(i).setMinimumWidth(100);
             }
         }
     }

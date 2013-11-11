@@ -3,14 +3,16 @@ package com.dota.my;
 public class Hero {
     private String name;
     private int pic;
+    private int smallPic;
     private int skill1;
     private int skill2;
     private int skill3;
     private int ulti;
 
-    Hero(String name, int pic, int skill1, int skill2, int skill3, int ulti) {
+    Hero(String name, int pic, int smallPic, int skill1, int skill2, int skill3, int ulti) {
         this.name = name;
         this.pic = pic;
+        this.smallPic = smallPic;
         this.skill1 = skill1;
         this.skill2 = skill2;
         this.skill3 = skill3;
@@ -20,6 +22,11 @@ public class Hero {
     public int getPic() {
         return pic;
     }
+
+    public int getSmallPic() {
+        return smallPic;
+    }
+
 
     public int getSkill(int i) {
         switch(i) {
