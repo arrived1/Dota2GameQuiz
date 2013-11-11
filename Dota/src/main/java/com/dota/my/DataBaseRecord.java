@@ -6,20 +6,6 @@ public class DataBaseRecord {
     int chancesLeft;
     CharSequence time;
 
-//    public DataBaseRecord(int id, int score, int chancesLeft, CharSequence time) {
-//        this.id = id;
-//        this.score = score;
-//        this.chancesLeft = chancesLeft;
-//        this.time = time;
-//    }
-
-//    public DataBaseRecord(String id, String score, String chancesLeft, String time) {
-//        this.id = Integer.valueOf(id);
-//        this.score = Integer.parseInt(score);
-//        this.chancesLeft = Integer.parseInt(chancesLeft);
-//        this.time = time;
-//    }
-
     public DataBaseRecord(String score, String chancesLeft, String time) {
         this.id = -1;
         this.score = Integer.parseInt(score);

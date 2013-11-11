@@ -12,8 +12,10 @@ import java.util.Collections;
 import java.util.Comparator;
 
 enum TABLE {
-    DeathMetch,
-    SingleRandom
+    SkillDeathMetch,
+    HeroDeathMetch,
+    SkillSingleRandom,
+    HeroSingleRandom
 }
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -21,8 +23,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final int DATABASE_SIZE = 100;
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "statisticManager";
-    private static final String TABLE_STATISTIC_SINGLE_RANDOM = "statisticSingleRandom";
-    private static final String TABLE_STATISTIC_DEATH_MATCH = "statisticDeathMatch";
+    private static final String TABLE_STATISTIC_SKILL_SINGLE_RANDOM = "statisticSkillSingleRandom";
+    private static final String TABLE_STATISTIC_SKILL_DEATH_MATCH = "statisticSkillDeathMatch";
     private static String TABLE_STATISTIC = "";
 
     private static final String KEY_ID = "id";
@@ -33,18 +35,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public DatabaseHandler(Context context, TABLE type) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
-        if(type == TABLE.DeathMetch) {
-            TABLE_STATISTIC = TABLE_STATISTIC_SINGLE_RANDOM;
+        if(type == TABLE.SkillDeathMetch) {
+            TABLE_STATISTIC = TABLE_STATISTIC_SKILL_SINGLE_RANDOM;
         }
-        if(type == TABLE.SingleRandom) {
-            TABLE_STATISTIC = TABLE_STATISTIC_DEATH_MATCH;
+        if(type == TABLE.SkillSingleRandom) {
+            TABLE_STATISTIC = TABLE_STATISTIC_SKILL_DEATH_MATCH;
         }
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        createTable(db, TABLE_STATISTIC_SINGLE_RANDOM);
-        createTable(db, TABLE_STATISTIC_DEATH_MATCH);
+        createTable(db, TABLE_STATISTIC_SKILL_SINGLE_RANDOM);
+        createTable(db, TABLE_STATISTIC_SKILL_DEATH_MATCH);
     }
 
     private void createTable(SQLiteDatabase db, String tableName) {
@@ -58,8 +60,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC_SINGLE_RANDOM);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC_DEATH_MATCH);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC_SKILL_SINGLE_RANDOM);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC_SKILL_DEATH_MATCH);
         onCreate(db);
     }
 
