@@ -12,7 +12,7 @@ public class HeroGameModePickerActivity extends Activity {
         setContentView(R.layout.activity_game_mode_picker);
 
         addListenerOnButtonHeroQuizNoRepead();
-//        addListenerOnButtonSkillQuizNoRepeadHardcore();
+        addListenerOnButtonHeroQuizNoRepeadHardcore();
 //        addListenerOnButtonSkillQuizDeadMatch();
 //        addListenerOnButtonSkillQuizDeadMatchHardcore();
     }
@@ -28,10 +28,10 @@ public class HeroGameModePickerActivity extends Activity {
         button.setOnClickListener(new ButtonOnClickListeneHeroNoRepead(this, 3));
     }
 
-//    private void addListenerOnButtonSkillQuizNoRepeadHardcore() {
-//        final Button button = (Button)findViewById(R.id.ModePick2);
-//        button.setOnClickListener(new ButtonOnClickListeneSkillNoRepead(this, 1));
-//    }
+    private void addListenerOnButtonHeroQuizNoRepeadHardcore() {
+        final Button button = (Button)findViewById(R.id.ModePick2);
+        button.setOnClickListener(new ButtonOnClickListeneHeroNoRepead(this, 1));
+    }
 //
 //    private void addListenerOnButtonSkillQuizDeadMatch() {
 //        final Button button = (Button)findViewById(R.id.ModePick3);
