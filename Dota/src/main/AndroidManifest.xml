@@ -108,6 +108,18 @@
             android:screenOrientation="portrait" >
         </activity>
 
+        <activity
+            android:name=".TabActivityHeroDeathMatch"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <activity
+            android:name=".TabActivityHeroSingleRandom"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+
 
     </application>
 

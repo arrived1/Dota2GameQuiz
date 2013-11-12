@@ -55,6 +55,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         createTable(db, TABLE_STATISTIC_SKILL_SINGLE_RANDOM);
         createTable(db, TABLE_STATISTIC_SKILL_DEATH_MATCH);
+        createTable(db, TABLE_STATISTIC_HERO_DEATH_MATCH);
+        createTable(db, TABLE_STATISTIC_HERO_SINGLE_RANDOM);
     }
 
     private void createTable(SQLiteDatabase db, String tableName) {
