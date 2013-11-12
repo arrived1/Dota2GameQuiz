@@ -35,11 +35,11 @@ public class SkillGameModelPickerActivity extends Activity {
 
     private void addListenerOnButtonSkillQuizDeadMatch() {
         final Button button = (Button)findViewById(R.id.ModePick3);
-        button.setOnClickListener(new ButtonOnClickListenerDeathMatch(this, 3));
+        button.setOnClickListener(new ButtonOnClickListenerSkillDeathMatch(this, 3));
     }
 
     private void addListenerOnButtonSkillQuizDeadMatchHardcore() {
         final Button button = (Button)findViewById(R.id.ModePick4);
-        button.setOnClickListener(new ButtonOnClickListenerDeathMatch(this, 1));
+        button.setOnClickListener(new ButtonOnClickListenerSkillDeathMatch(this, 1));
     }
 }

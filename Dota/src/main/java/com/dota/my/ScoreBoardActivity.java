@@ -20,6 +20,7 @@ public class ScoreBoardActivity extends android.app.TabActivity {
         TabHost.TabSpec tab1 = tabHost.newTabSpec("First Tab");
         TabHost.TabSpec tab2 = tabHost.newTabSpec("Second Tab");
 
+
         // Set the Tab name and Activity
         // that will be opened when particular Tab will be selected
         tab1.setIndicator("Single Random");
@@ -27,6 +28,7 @@ public class ScoreBoardActivity extends android.app.TabActivity {
 
         tab2.setIndicator("Death Match");
         tab2.setContent(new Intent(this, TabActivityDeathMatch.class));
+
 
         /** Add the tabs  to the TabHost to display. */
         tabHost.addTab(tab1);
