@@ -9,7 +9,7 @@ public class TabActivityDeathMatch extends ListActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
-        DatabaseHandler db = new DatabaseHandler(this, TABLE.DeathMetch);
+        DatabaseHandler db = new DatabaseHandler(this, TABLE.SkillDeathMetch);
 
         ListAdapter adapter = new ListAdapter(this, db.getAllRecords());
         setListAdapter(adapter);

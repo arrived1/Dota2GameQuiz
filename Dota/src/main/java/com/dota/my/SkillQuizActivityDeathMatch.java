@@ -120,7 +120,7 @@ public class SkillQuizActivityDeathMatch extends Activity {
     }
 
     private void updateDataBaseScore() {
-        DatabaseHandler db = new DatabaseHandler(this, TABLE.DeathMetch);
+        DatabaseHandler db = new DatabaseHandler(this, TABLE.SkillDeathMetch);
         DataBaseRecord record = new DataBaseRecord(Integer.toString(score.getPoints()),
                                                    Integer.toString(score.getGuessesLeft()),
                                                    timer.getTimeTxt().toString());

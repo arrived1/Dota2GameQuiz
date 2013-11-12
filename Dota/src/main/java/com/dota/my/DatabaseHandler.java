@@ -13,8 +13,8 @@ import java.util.Comparator;
 
 enum TABLE {
     SkillDeathMetch,
-    HeroDeathMetch,
     SkillSingleRandom,
+    HeroDeathMetch,
     HeroSingleRandom
 }
 
@@ -25,6 +25,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "statisticManager";
     private static final String TABLE_STATISTIC_SKILL_SINGLE_RANDOM = "statisticSkillSingleRandom";
     private static final String TABLE_STATISTIC_SKILL_DEATH_MATCH = "statisticSkillDeathMatch";
+    private static final String TABLE_STATISTIC_HERO_SINGLE_RANDOM = "statisticHeroSingleRandom";
+    private static final String TABLE_STATISTIC_HERO_DEATH_MATCH = "statisticHeroDeathMatch";
     private static String TABLE_STATISTIC = "";
 
     private static final String KEY_ID = "id";
@@ -40,6 +42,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
         if(type == TABLE.SkillSingleRandom) {
             TABLE_STATISTIC = TABLE_STATISTIC_SKILL_DEATH_MATCH;
+        }
+        if(type == TABLE.HeroDeathMetch) {
+            TABLE_STATISTIC = TABLE_STATISTIC_HERO_DEATH_MATCH;
+        }
+        if(type == TABLE.HeroSingleRandom) {
+            TABLE_STATISTIC = TABLE_STATISTIC_HERO_SINGLE_RANDOM;
         }
     }
 
@@ -62,6 +70,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC_SKILL_SINGLE_RANDOM);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC_SKILL_DEATH_MATCH);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC_HERO_SINGLE_RANDOM);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTIC_HERO_DEATH_MATCH);
         onCreate(db);
     }
 

@@ -116,7 +116,7 @@ public class HeroQuizActivityNorRepead extends Activity {
     private void gameWin() {
         timer.stopTimer();
 
-//        updateDataBaseScore();
+        updateDataBaseScore();
 
         Intent myIntent = new Intent(this, GameWinActivity.class);
         myIntent.putExtra("SCORE", score.getPoints());
@@ -139,7 +139,7 @@ public class HeroQuizActivityNorRepead extends Activity {
     }
 
     private void updateDataBaseScore() {
-        DatabaseHandler db = new DatabaseHandler(this, TABLE.SingleRandom);
+        DatabaseHandler db = new DatabaseHandler(this, TABLE.HeroSingleRandom);
         DataBaseRecord record = new DataBaseRecord(Integer.toString(score.getPoints()),
                                                    Integer.toString(score.getGuessesLeft()),
                                                    timer.getTimeTxt().toString());
