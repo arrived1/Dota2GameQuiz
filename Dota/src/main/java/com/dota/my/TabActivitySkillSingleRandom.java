@@ -4,7 +4,7 @@ import android.app.ListActivity;
 import android.os.Bundle;
 
 
-public class TabActivitySingleRandom extends ListActivity {
+public class TabActivitySkillSingleRandom extends ListActivity {
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
