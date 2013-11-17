@@ -152,6 +152,14 @@ public class DataBase {
                 R.drawable.elder_titan_natural_order_hp1,
                 R.drawable.elder_titan_earth_splitter_hp1));
 
+        heroes.add(new Hero("Earth Spirit",
+                R.drawable.earth_spirit_full,
+                R.drawable.earth_spirit_small,
+                R.drawable.earth_spirit_boulder_smash_hp1,
+                R.drawable.earth_spirit_rolling_boulder_hp1,
+                R.drawable.earth_spirit_geomagnetic_grip_hp1,
+                R.drawable.earth_spirit_magnetize_hp1));
+
         heroes.add(new Hero("Axe",
                 R.drawable.axe_full,
                 R.drawable.axe_small,
@@ -407,6 +415,14 @@ public class DataBase {
                 R.drawable.troll_warlord_whirling_axes_ranged_hp1,
                 R.drawable.troll_warlord_fervor_hp1,
                 R.drawable.troll_warlord_battle_trance_hp1));
+
+        heroes.add(new Hero("Ember Spirit",
+                R.drawable.ember_spirit_full,
+                R.drawable.ember_spirit_small,
+                R.drawable.ember_spirit_searing_chains_hp1,
+                R.drawable.ember_spirit_sleight_of_fist_hp1,
+                R.drawable.ember_spirit_flame_guard_hp1,
+                R.drawable.ember_spirit_fire_remnant_hp1));
 
         heroes.add(new Hero("Bloodseeker",
                 R.drawable.bloodseeker_full,
