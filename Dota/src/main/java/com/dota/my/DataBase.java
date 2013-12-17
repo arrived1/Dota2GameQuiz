@@ -152,6 +152,14 @@ public class DataBase {
                 R.drawable.elder_titan_natural_order_hp1,
                 R.drawable.elder_titan_earth_splitter_hp1));
 
+        heroes.add(new Hero("Legion Commander",
+                R.drawable.legion_commander_full,
+                R.drawable.legion_commander_small,
+                R.drawable.legion_commander_overwhelming_odds_hp1,
+                R.drawable.legion_commander_press_the_attack_hp1,
+                R.drawable.legion_commander_moment_of_courage_hp1,
+                R.drawable.legion_commander_duel_hp1));
+
         heroes.add(new Hero("Earth Spirit",
                 R.drawable.earth_spirit_full,
                 R.drawable.earth_spirit_small,
