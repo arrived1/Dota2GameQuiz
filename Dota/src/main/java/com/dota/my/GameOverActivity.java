@@ -3,15 +3,19 @@ package com.dota.my;
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
 public class GameOverActivity extends Activity {
+    private Animations animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_over);
+
+        animation = new Animations(this);
 
         GameSounds sounds = new GameSounds(this);
         sounds.gameOver();
@@ -44,5 +48,11 @@ public class GameOverActivity extends Activity {
 
         TextView time = (TextView)findViewById(R.id.timeRes);
         time.setText(timeTxt);
+
+        LinearLayout layout = (LinearLayout)findViewById(R.id.skills);
+        layout.setAnimation(animation.getAnimFadein());
+
+        ImageView imageView = (ImageView)findViewById(R.id.logo);
+        imageView.startAnimation(animation.getAnimFadein());
     }
 }

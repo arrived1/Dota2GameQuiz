@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 
 public class GameWinActivity extends Activity {
+    private Animations animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,5 +29,10 @@ public class GameWinActivity extends Activity {
 
         TextView time = (TextView)findViewById(R.id.timeRes);
         time.setText(timeTxt);
+
+        animation = new Animations(this);
+
+        ImageView imageView = (ImageView)findViewById(R.id.logo);
+        imageView.startAnimation(animation.getAnimFadein());
     }
 }

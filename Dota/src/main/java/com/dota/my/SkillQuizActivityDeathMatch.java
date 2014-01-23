@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.Random;
 import java.util.Vector;
@@ -26,6 +29,10 @@ public class SkillQuizActivityDeathMatch extends Activity {
 
     private int correctAnswer = -1;
 
+    Animations animation;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +50,9 @@ public class SkillQuizActivityDeathMatch extends Activity {
 
         prepareBoard();
         prepareQuestion();
+
+        animation  = new Animations(this);
+        setAnimation();
     }
 
     private void addAdView() {
@@ -125,6 +135,17 @@ public class SkillQuizActivityDeathMatch extends Activity {
                                                    Integer.toString(score.getGuessesLeft()),
                                                    timer.getTimeTxt().toString());
         db.addRecord(record);
+    }
+
+    private void setAnimation() {
+        LinearLayout layout1 = (LinearLayout)findViewById(R.id.buttonRow1);
+        layout1.setAnimation(animation.getLeftRight());
+
+        LinearLayout layout2 = (LinearLayout)findViewById(R.id.buttonRow2);
+        layout2.setAnimation(animation.getRightLeft());
+
+        ImageView imageView = (ImageView)findViewById(R.id.pic);
+        imageView.startAnimation(animation.getAnimFadein());
     }
 
     private void prepareBoard() {

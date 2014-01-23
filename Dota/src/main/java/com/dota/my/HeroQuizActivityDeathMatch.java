@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.google.ads.AdRequest;
 import com.google.ads.AdView;
@@ -26,6 +27,8 @@ public class HeroQuizActivityDeathMatch extends Activity {
 
     private int correctAnswer = -1;
 
+    Animations animation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,9 @@ public class HeroQuizActivityDeathMatch extends Activity {
 
         prepareBoard();
         prepareQuestion();
+
+        animation  = new Animations(this);
+        setAnimation();
     }
 
     private void addAdView() {
@@ -126,6 +132,20 @@ public class HeroQuizActivityDeathMatch extends Activity {
                                                    Integer.toString(score.getGuessesLeft()),
                                                    timer.getTimeTxt().toString());
         db.addRecord(record);
+    }
+
+    private void setAnimation() {
+        LinearLayout layout1 = (LinearLayout)findViewById(R.id.buttonRow1);
+        layout1.setAnimation(animation.getLeftRight());
+
+        LinearLayout layout2 = (LinearLayout)findViewById(R.id.buttonRow2);
+        layout2.setAnimation(animation.getRightLeft());
+
+        LinearLayout layout3 = (LinearLayout)findViewById(R.id.buttonRow3);
+        layout3.setAnimation(animation.getLeftRight());
+
+        ImageView imageView = (ImageView)findViewById(R.id.pic);
+        imageView.startAnimation(animation.getAnimFadein());
     }
 
     private void prepareBoard() {
