@@ -168,6 +168,14 @@ public class DataBase {
                 R.drawable.earth_spirit_geomagnetic_grip_hp1,
                 R.drawable.earth_spirit_magnetize_hp1));
 
+        heroes.add(new Hero("Phoenix",
+                R.drawable.phoenix_full,
+                R.drawable.phoenix_small,
+                R.drawable.phoenix_icarus_dive_hp1,
+                R.drawable.phoenix_fire_spirits_hp1,
+                R.drawable.phoenix_sun_ray_hp1,
+                R.drawable.phoenix_supernova_hp1));
+
         heroes.add(new Hero("Axe",
                 R.drawable.axe_full,
                 R.drawable.axe_small,
@@ -551,6 +559,14 @@ public class DataBase {
                 R.drawable.medusa_mystic_snake_hp1,
                 R.drawable.medusa_mana_shield_hp1,
                 R.drawable.medusa_stone_gaze_hp1));
+
+        heroes.add(new Hero("Terrorblade",
+                R.drawable.terrorblade_full,
+                R.drawable.terrorblade_small,
+                R.drawable.terrorblade_reflection_hp1,
+                R.drawable.terrorblade_conjure_image_hp1,
+                R.drawable.terrorblade_metamorphosis_hp1,
+                R.drawable.terrorblade_sunder_hp1));
 
         heroes.add(new Hero("Crystal Maiden",
                 R.drawable.crystal_maiden_full,
